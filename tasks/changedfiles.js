@@ -14,29 +14,8 @@ module.exports = function (grunt) {
             var changedFiles = String(result).split(grunt.util.linefeed);
             
             grunt.config.set('git.changed', changedFiles);
-            grunt.config.set('git.changed.js', changedFiles.filter(function(element) {
-                return (/\.js/).test(element);
-            }));
-            /*
-            var asTests = changedFiles.map(function(val) {
-                var split = val.split('/'),
-                    outputPath = split[0] + '/tests/specs/*.';
-                if (/tests/.test(split[1])) {
-                    return val;
-                } else if (/app/.test(split[1])) {
-                    return outputPath + split.slice(2).join('.');
-                } else {
-                    return '';
-                }
-            });
 
-            grunt.config.set('git.tests.changed', asTests.filter(function(element) {
-                return element !== '';
-            }));
-*/
-            grunt.log.writeln("changed files:           " + grunt.config.process('<%= git.changed %>').join(', '));
-            grunt.log.writeln("changed JS files:        " + grunt.config.process('<%= git.changed.js %>').join(', '));
-//            grunt.log.writeln("matching tests to run:   " + grunt.config.process('<%= git.tests.changed %>').join(', '));
+            grunt.verbose.writeln("changed files:           " + grunt.config.process('<%= git.changed %>').join(', '));
 
             done();
         });

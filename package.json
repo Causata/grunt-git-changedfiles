@@ -1,6 +1,6 @@
 {
     "name": "grunt-git-changedfiles",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "Grunt plugin to generate a list of the files that have changed in your Git working tree.",
     "main": "index.js",
     "scripts": {
