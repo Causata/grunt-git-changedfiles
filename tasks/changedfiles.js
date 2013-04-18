@@ -12,7 +12,7 @@ module.exports = function (grunt) {
         }, function(error, result){
             
             var changedFiles = String(result).split(grunt.util.linefeed);
-            console.log(result);
+            
             grunt.config.set('git.changed', changedFiles);
             grunt.config.set('git.changed.js', changedFiles.filter(function(element) {
                 return (/\.js/).test(element);
