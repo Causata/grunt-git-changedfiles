@@ -20,26 +20,23 @@ module.exports = function(grunt) {
             tests: ['temp'],
         },
 
+		loginJs : { files: { "build/output/login.js" : [
+			"login/src/app/view/**/*.js",
+			"login/src/**/*.js"
+		]}},
+        
         // Work on a copy of the files because they will be renamed during testing.
         concat: {
             aToB: {
-                flatten: true,
-                expand: true,
-                src: ['test/fixtures/coelacanth.txt'],
-                dest: 'test/fixtures/temp.txt',
+                files: {
+                    'test/fixtures/something.js':['test/fixtures/coelacanth.txt']
+                }
             },
-            cToA: {
-                flatten: true,
-                expand: true,
-                src: ['test/fixtures/something.js'],
-                dest: 'test/fixtures/coelacanth.txt',
-            },
-            bToC: {
-                flatten: true,
-                expand: true,
-                src: ['test/fixtures/temp.txt'],
-                dest: 'test/fixtures/something.js',
-            },
+            bToA: {
+                files: {
+                    'test/fixtures/coelacanth.txt':['test/fixtures/something.js']
+                }
+            }
         },
         
         git_changedfiles : {
@@ -59,13 +56,14 @@ module.exports = function(grunt) {
     // These plugins provide necessary tasks.
     grunt.loadNpmTasks('grunt-rev');
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-nodeunit');
 
     // Whenever the "test" task is run, first clean the "tmp" dir, then run this
     // plugin's task(s), then test the result.
-    grunt.registerTask('test', ['clean', 'copy', 'git_changedfiles', 'nodeunit']);
+    grunt.registerTask('test', ['clean', 'concat:aToB', 'git_changedfiles', 'nodeunit']);
 
     // By default, lint and run all tests.
     grunt.registerTask('default', ['jshint', 'test']);
