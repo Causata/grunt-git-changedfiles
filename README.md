@@ -27,3 +27,7 @@ If the plugin has been installed correctly, running `grunt --help` at the comman
 
 Use the **git_changedfiles** task to detect which files in your local git working tree have been modified. This can then be used as a filter in other tasks.
 
+Once the task has run, you'll then be able to access a list of files changed in your Git working tree like this:
+
+    grunt.config.get('git.changed')
+
