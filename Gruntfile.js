@@ -21,12 +21,24 @@ module.exports = function(grunt) {
         },
 
         // Work on a copy of the files because they will be renamed during testing.
-        copy: {
-            test: {
+        concat: {
+            aToB: {
                 flatten: true,
                 expand: true,
-                src: ['test/fixtures/*.txt'],
-                dest: 'temp/',
+                src: ['test/fixtures/coelacanth.txt'],
+                dest: 'test/fixtures/temp.txt',
+            },
+            cToA: {
+                flatten: true,
+                expand: true,
+                src: ['test/fixtures/something.js'],
+                dest: 'test/fixtures/coelacanth.txt',
+            },
+            bToC: {
+                flatten: true,
+                expand: true,
+                src: ['test/fixtures/temp.txt'],
+                dest: 'test/fixtures/something.js',
             },
         },
         
