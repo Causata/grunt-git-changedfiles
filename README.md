@@ -1,4 +1,4 @@
-# grunt-rev [![Build Status](https://travis-ci.org/cbas/grunt-rev.png)](https://travis-ci.org/cbas/grunt-rev)
+# grunt-rev [![Build Status](https://travis-ci.org/causata/grunt-git-changedfiles.png)](https://travis-ci.org/causata/grunt-git-changedfiles)
 
 > Detection of files that have been modified in a local git working tree
 
