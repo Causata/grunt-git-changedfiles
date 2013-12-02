@@ -8,11 +8,11 @@ module.exports = function (grunt) {
         var done = this.async();
         grunt.util.spawn({
             cmd: 'git',
-            args: ['diff', '--name-only', '--diff-filter=ACM'] // '--cached', 
+            args: ['diff', 'HEAD', '--name-only', '--diff-filter=ACM'] // staged and working tree files
         }, function(error, result){
-            
+
             var changedFiles = String(result).split(grunt.util.linefeed);
-            
+
             grunt.config.set('git.changed', changedFiles);
 
             grunt.verbose.writeln("changed files:           " + grunt.config.process('<%= git.changed %>').join(', '));
