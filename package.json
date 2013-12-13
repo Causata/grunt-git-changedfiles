@@ -1,7 +1,7 @@
 {
     "name": "grunt-git-changedfiles",
-    "version": "0.0.2",
-    "description": "Grunt plugin to generate a list of the files that have changed in your Git working tree.",
+    "version": "0.0.3",
+    "description": "Grunt plugin to generate a list of the files that have changed since the last commit.",
     "main": "index.js",
     "scripts": {
         "test": "grunt test"
@@ -45,6 +45,10 @@
         {
             "name" : "Richard Marr"
             , "email" : "richard.marr@gmail.com"
+        },
+        {
+          "name" : "Todd Treece",
+          "email" : "toddtreece@gmail.com"
         }
     ]
 }
